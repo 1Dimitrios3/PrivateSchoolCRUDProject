@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <div>
+    <form action="" method="POST">
+        <div class="mb-3">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" name="fname" id="fname">
+
+        </div>
+        <div class="mb-3">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" name="lname" id="lname">
+        </div>
+        <div class="mb-3 mt-3">
+            <label class="mb-2" for="subject">Choose a Subject</label>
+        <select class="form-select" name="subject" aria-label="Default select example">  
+            <option disabled value>Subject</option>
+            <option value="Javascript">Javascript</option>
+            <option value="C#">C#</option>
+            <option value="Java">Java</option>
+            <option value="Sql database">Sql database</option>
+            <option value="Html / Css">Html / Css</option>
+            <option value="Backend NodeJs">Backend NodeJs</option>
+        </select>
+    </div>
+        <button type="submit" class="btn btn-primary">Add Trainer</button>
+    </form>
+    </div>
+    <div id="message">
+        <%= message %>
+    </div>
+</body>
+
+</html>

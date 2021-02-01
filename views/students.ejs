@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/courses/list">Courses</a>
+                    <a class="nav-link" href="/trainers/list">Trainers</a>
+                    <a class="nav-link active" aria-current="page" href="#">Students</a>
+                    <a class="nav-link" href="/assignments/list">Assignments</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>
+        <%= desc %>.
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Student ID</th>
+                <th scope="col">Course ID</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Tuition fee</th>
+            </tr>
+        </thead>
+        <% for(let i=0; i < students.length; i++) { %>
+        <tbody>
+            <tr>
+                <th scope="row"><%= students[i].student_id %></th>
+                <td><%= students[i].course_id %></td>
+                <td><%= students[i].first_name %></td>
+                <td><%= students[i].last_name %></td>
+                <td><%= students[i].birth_date.getFullYear() + '/' %>
+                    <%= students[i].birth_date.getMonth() + 1 + '/' %>
+                    <%= students[i].birth_date.getDay() + 1 %>
+                </td>
+                <td><%= students[i].tuition %></td>
+                <td><a href="<%= url + '/edit/' + students[i].student_id %>"> <button class="btn btn-warning"
+                            type="submit">Edit</button></a></td>
+                <td><button onclick="deleteStudent('<%= url %>' + '/delete/' + '<%= students[i].student_id %>')"
+                        class="btn btn-danger">Delete</button></td>
+               
+            </tr>
+        </tbody>
+        <% } %>
+    </table>
+    <div>
+        <a href="/students/add"><button class="btn btn-primary">Add a new Student</button></a>
+    </div>
+    <div id="error">
+        <%= message %>
+    </div>
+    <script>
+        function deleteStudent(url) {
+            var dialog = confirm('Are you sure you want to delete this student?');
+            if(dialog) {
+                window.location.replace(url)
+            } else alert('Try again later!');
+        }
+    </script>
+</body>
+
+</html>

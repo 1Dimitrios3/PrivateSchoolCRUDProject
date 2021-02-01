@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Courses</a>
+                    <a class="nav-link" href="/trainers/list">Trainers</a>
+                    <a class="nav-link" href="/students/list">Students</a>
+                    <a class="nav-link" href="/assignments/list">Assignments</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <h1>
+        <%= title %>
+    </h1>
+    <p> <%= desc %>.
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Course ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Stream</th>
+                <th scope="col">Type</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+            </tr>
+        </thead>
+        <% for(let i=0; i < courses.length; i++) { %>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <%= courses[i].course_id %>
+                    </th>
+                    <td>
+                        <%= courses[i].title %> %>
+                    </td>
+                    <td>
+                        <%= courses[i].stream  %>
+                    </td>
+                    <td>
+                        <%= courses[i].type %>
+                    </td>
+                    <td>
+                        <%= courses[i].start_date.toLocaleString() %>
+                    </td>
+                    <td>
+                        <%= courses[i].end_date.toLocaleString() %>
+                    </td>
+                </tr>
+            </tbody>
+            <% } %>
+        </table>
+        <div>
+            <a href="/courses/add"><button class="btn btn-primary">Add a new Course</button></a>
+        </div>
+    <div id="error">
+        <%= message %>
+    </div>
+</body>
+
+</html>

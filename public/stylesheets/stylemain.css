@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+  background-blend-mode: screen;
+}
+
+a {
+  color: #00b7ff;
+}
+
+.main_card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.innercard {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 50px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.text {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.img1 {
+  border-radius: 20px;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.btn1 {
+  padding: 20px 30px;
+  background-color: orange;
+  border: none;
+  color: black;
+  font-size: 22px;
+  border-radius: 10px;
+  transition: transform 0.2s;
+  transition: 0.5s;
+}
+
+.btn1:active {
+  transform: scale(0.97);
+}
+
+.btn1:hover {
+  background-color: lightseagreen;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}

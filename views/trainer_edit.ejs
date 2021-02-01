@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <div>
+        <form action="/trainers/update" method="POST">
+            <div class="mb-3">
+                <input type="hidden" class="form-control" name="id" id="id" value="<%= trainer.trainer_id %>">
+            
+            </div>
+            <div class="mb-3">
+                <label for="first_name" class="form-label">First Name</label>
+                <input type="text" class="form-control" value="<%= trainer.first_name %>" name="first_name" id="first_name">
+
+            </div>
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Last Name</label>
+                <input type="text" class="form-control" value="<%= trainer.last_name %>" name="last_name" id="last_name">
+            </div>
+            <div class="mb-3 mt-3">
+                <select class="form-select" name="subject" value="<%= trainer.subject %>" aria-label="Default select example">
+                    <option selected>Subject</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="C#">C#</option>
+                    <option value="Java">Java</option>
+                    <option value="Sql database">Sql database</option>
+                    <option value="Html / Css">Html / Css</option>
+                    <option value="Backend NodeJs">Backend NodeJs</option>
+                </select>
+            </div>
+            
+            <input type="submit" class="btn btn-primary" value="Edit Trainer"/>
+        </form>
+    </div>
+    <div id="message">
+        <%= message %>
+    </div>
+</body>
+
+</html>

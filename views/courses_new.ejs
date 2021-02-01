@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <form action="" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" id="title">
+
+        </div>
+        <div class="mb-3">
+            <label for="stream" class="form-label">Stream</label>
+            <input type="text" class="form-control" name="stream" id="stream">
+        </div>
+        <div class="mb-3 mt-3">
+            <select class="form-select" name="type" aria-label="Default select example">
+                <option selected>Type</option>
+                <option value="FullTime">Full Time</option>
+                <option value="PartTime">Part Time</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="startDate" class="form-label">Start Date</label>
+            <input type="date" class="form-control" name="startDate" id="startDate">
+        </div>
+        <div class="mb-3">
+            <label for="endDate" class="form-label">End Date</label>
+            <input type="date" class="form-control" name="endDate" id="endDate">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Course</button>
+    </form>
+
+    <div id="message">
+        <%= message %>
+    </div>
+</body>
+
+</html>
